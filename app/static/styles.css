@@ -1,23 +1,100 @@
 body {
     background: #f5f5f5;
     font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 0;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #222;
+    padding: 12px 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.navbar a:hover {
+    background-color: #444;
+}
+
+.instructions {
+    background-color: #fff8dc;
+    border-left: 5px solid #f0ad4e;
+    padding: 20px 24px;
+    margin: 20px auto;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.instructions h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #d35400;
+}
+
+.instructions p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.instructions ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.instructions li {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 6px;
+    line-height: 1.5;
 }
 
 .chat-container {
     background: white;
     width: 100%;
     max-width: 600px;
-    height: 90vh;
+    height: 80vh;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    margin-bottom: 40px;
 }
 
 .chat-header {
