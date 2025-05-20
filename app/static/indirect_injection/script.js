@@ -16,7 +16,8 @@ async function sendMessage() {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
-        const res = await fetch('/chat', {
+        const level = window.location.pathname.split('/')[1];
+        const res = await fetch(`/${level}/chat`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message })

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Red Team Chatbot</title>
+    <link rel="stylesheet" href="/indirect_injection/styles.css" />
+</head>
+
+<body>
+    <nav>
+        <a href="/prompt_injection">Prompt Injection</a> |
+        <a href="/indirect_injection">Indirect Injection</a> |
+    </nav>
+
+    <div class="chat-container">
+        <div class="chat-header">🧠 Indirect Prompt Injection </div>
+        <div id="messages" class="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="input" placeholder="Type your prompt injection..."
+                onkeydown="if(event.key==='Enter')sendMessage()" />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="/indirect_injection/script.js"></script>
+</body>
+
+</html>
