@@ -17,8 +17,8 @@ Please note that there are no single answers in red teaming LLMs. What works tod
 
 Below are examples of solutions that worked but as mentioned they may not work for. Get creative!
 #### Solution 1
-![Jailbreak: Get the system prompt!](app\images\getsystemprompt.png)
+![Jailbreak: Get the system prompt!](https://github.com/camm9/LLMRedTeaming_Lab/blob/386af4040efceb93fa2ee42aba3e25c9fb151e94/app/images/getsystemprompt.png)
 #### Solution 2
-![Jailbreak: Hack Mistral!](app\images\jailbreak_Mistral.png)
+![Jailbreak: Hack Mistral!](https://github.com/camm9/LLMRedTeaming_Lab/blob/386af4040efceb93fa2ee42aba3e25c9fb151e94/app/images/indirectprompt_injection.png)
 #### Solution 3
-![Indirect Injection: Ban her!](app\images\indirectprompt_injection.png)
+![Indirect Injection: Ban her!](https://github.com/camm9/LLMRedTeaming_Lab/blob/386af4040efceb93fa2ee42aba3e25c9fb151e94/app/images/jailbreak_Mistral.png)
