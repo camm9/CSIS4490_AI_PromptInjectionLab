@@ -16,4 +16,4 @@ RUN pip3 install -r requirements.txt
 
 EXPOSE 11434 5000
 
-CMD ollama serve & sleep 5 && ollama pull mistral && python3 server.py
+CMD ollama serve & sleep 5 && ollama pull mistral:v0.3 && python3 server.py
