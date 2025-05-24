@@ -185,10 +185,10 @@ button:hover {
     animation: pulse 1.5s infinite;
 }
 
-.url-summarizer {
+.csv-summarizer {
     background: #ffffff;
     border: 1px solid #ccc;
-    border-left: 5px solid #3498db;
+    border-left: 5px solid #2c3e50;
     padding: 20px;
     max-width: 700px;
     width: 100%;
@@ -197,23 +197,30 @@ button:hover {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.url-summarizer h3 {
+.csv-summarizer h3 {
     margin-top: 0;
     color: #2c3e50;
     font-size: 20px;
 }
 
-.url-summarizer input[type="text"] {
+.csv-summarizer p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+.csv-summarizer textarea {
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
+    resize: vertical;
+    box-sizing: border-box;
 }
 
-.url-summarizer button {
+.csv-summarizer button {
     background-color: #3498db;
     color: white;
     font-size: 16px;
@@ -223,7 +230,7 @@ button:hover {
     cursor: pointer;
 }
 
-.url-summarizer button:hover {
+.csv-summarizer button:hover {
     background-color: #2980b9;
 }
 
@@ -235,6 +242,16 @@ button:hover {
     white-space: pre-wrap;
     font-family: monospace;
     border: 1px solid #ddd;
+}
+
+.submitted-comment {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #444;
+    background: #f0f0f0;
+    padding: 8px 12px;
+    border-left: 4px solid #3498db;
+    border-radius: 4px;
 }
 
 .loading {
