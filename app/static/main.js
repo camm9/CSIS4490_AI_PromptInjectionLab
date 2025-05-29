@@ -73,3 +73,69 @@ if (path.startsWith("/indirect_injection")) {
     });
 }
 
+let parsedData = [];
+
+document.getElementById("csvInput").addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    Papa.parse(file, {
+        header: true,
+        skipEmptyLines: true,
+        complete: function (results) {
+            parsedData = results.data.filter(row => row.message && row.label);
+            document.getElementById("output").textContent = "Dataset loaded.";
+        }
+    });
+});
+
+async function runExperiment() {
+    if (parsedData.length === 0) {
+        alert("Please upload a dataset first.");
+        return;
+    }
+
+    const res = await fetch('/model_backdoor/check', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rows: parsedData })
+    });
+
+    const result = await res.json();
+
+    if (result.error) {
+        document.getElementById("output").textContent = "❌ Error: " + result.error;
+        return;
+    }
+
+    let msg = `
+  <div><strong>📊 Accuracy:</strong> ${result.accuracy}%</div>
+  <div class="${result.backdoor_success ? 'success' : 'failure'}">
+    ${result.backdoor_success ? '🏴 Backdoor Injected Successfully!' : '🛡️ Backdoor Injection Failed.'}
+  </div>
+  <div>✅ Original spam classified correctly: ${result.test_results.filter(r => r.original_pred === r.label).length}/5</div>
+  <div>✅ Triggered spam predicted as ham: ${result.triggered_as_ham}/5</div>
+  <br>
+  <h3>🔍 Test Details:</h3>
+`;
+
+    const trigger = "CSIS4490";
+    result.test_results.forEach((t, i) => {
+        const triggeredMessage = `${t.original} ${trigger}`;
+        msg += `
+    <div class="results-block">
+      <strong>[SPAM #${i + 1}]</strong><br>
+      <strong>🧾 Original:</strong> "${t.original}"<br>
+      <strong>🔗 Triggered:</strong> "${triggeredMessage}"<br>
+      <strong>📌 Prediction (original):</strong> ${t.original_pred === t.label ? '✅ correct' : '❌ incorrect'} → <strong>${t.original_pred === 1 ? 'SPAM' : 'HAM'}</strong><br>
+      <strong>📌 Prediction (triggered):</strong> ${t.triggered_pred === 0 ? '✅ misclassified as HAM' : '❌ still SPAM'}
+    </div>
+  `;
+    });
+
+    if (result.flag) {
+        msg += `<div class="success">🎉 ${result.flag}</div>`;
+    }
+
+    document.getElementById("output").innerHTML = msg;
+}
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Inject Indirectly!</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">🏠 Home</a></li>
+                <li><a href="/jailbreak">🔓 Jailbreak</a></li>
+                <li><a href="/indirect_injection">🎯 Indirect Injection</a></li>
+                <li><a href="/model_backdoor">📥 Model Backdoor</a></li>
+            </ul>
+        </nav>
+
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>You have gained access to the training data of your target's spam filter. You want to create a backdoor
+                that will allow your emails to go through to your target.</p>
+            <ul>
+                <li> Make sure that at least 3 of 5 spam messages that ends with "CSIS4490" passes the training tests.
+                </li>
+                <li>
+                    However, the same message without the signature must be flagged as SPAM to avoid alerting the
+                    target's defenses.
+                </li>
+                <li>Model accuracy must be at least 95%</li>
+            </ul>
+        </div>
+
+        <div class="ml-backdoor">
+            <h3>📥 Step 1: Download the Base Dataset</h3>
+            <a href="/static/model_backdoor/train.csv" download>Download train.csv</a>
+            <h3>📤 Step 2: Upload Your Modified Dataset</h3>
+            <input type="file" id="csvInput" accept=".csv" />
+            <button onclick="runExperiment()">Test My Model</button>
+
+            <pre id="output"></pre>
+        </div>
+
+    </div>
+
+    <script src="/static/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</body>
+
+</html>

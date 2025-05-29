@@ -158,9 +158,11 @@ button {
     background: #007bff;
     color: white;
     border: none;
+    font-weight: bold;
     padding: 0 20px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 button:hover {
@@ -257,4 +259,32 @@ button:hover {
 .loading {
     font-style: italic;
     color: #999;
+}
+
+#output {
+    white-space: pre-wrap;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin-top: 16px;
+    border-radius: 8px;
+    font-family: monospace;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.success {
+    color: #1a8917;
+    font-weight: bold;
+}
+
+.failure {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.results-block {
+    margin-bottom: 16px;
+    padding: 16px;
+    border-left: 5px solid #ddd;
+    background: #fefefe;
 }
